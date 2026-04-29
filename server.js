@@ -107,13 +107,13 @@ app.post('/analyze', async (req, res) => {
   try {
     const body = {
       model: 'claude-sonnet-4-20250514',
-      max_tokens: 2000,
+      max_tokens: 1000,
       messages: [{ role: 'user', content: prompt }]
     };
 
     if (useWebSearch) {
       body.tools = [{ type: 'web_search_20250305', name: 'web_search' }];
-      body.max_tokens = 1500;
+      body.max_tokens = 1000;
     }
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
